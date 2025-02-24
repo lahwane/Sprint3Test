@@ -23,6 +23,8 @@ export const mailService = {
 function query(filterBy) {
     return storageService.query(MAIL_KEY)
         .then(mails => {
+            // console.log(mails)
+            
             mails = filter(mails, filterBy)
             return mails
         })
@@ -47,10 +49,10 @@ function save(mail) {
 
 function getDefaultFilter() {
     return {
-        status: 'inbox',
+        status: '',
         txt: '',
-        isRead: null,
-        isStared: null,
+        isRead: undefined,
+        // isStared: undefined,
         labels: []
     }
 }
