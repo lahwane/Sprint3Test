@@ -1,0 +1,13 @@
+.mail-folders-container {
+
+    .mail-folders {
+        list-style: none;
+        gap: 1em;
+
+        button {
+            gap: 1em;
+            background-color: #fff;
+            border: none;
+        }
+    }
+}

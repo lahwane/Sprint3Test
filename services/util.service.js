@@ -7,7 +7,8 @@ export const utilService = {
     getDayName,
     getMonthName,
     loadFromStorage,
-    saveToStorage
+    saveToStorage,
+    getFormattedDate
 }
 
 function saveToStorage(key, val) {
@@ -70,4 +71,22 @@ function getMonthName(date) {
         "July", "August", "September", "October", "November", "December"
     ]
     return monthNames[date.getMonth()]
+}
+
+function getFormattedDate(timeStamp) {
+    const date = new Date(timeStamp)
+    const day = date.getDate()
+    // const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+    
+    const month = getMonthName(date)
+    // const month = months[date.getMonth()]
+    const monthShort=month.slice(0,3)
+    const year = date.getFullYear()
+    const currYear = new Date().getFullYear()
+    console.log(year)
+    console.log("currYear", currYear)
+    if (year !== currYear)
+        return year
+    else return `${monthShort} ${day}`
+
 }

@@ -1,0 +1,24 @@
+.mail-details {
+    width: 60vw;
+    place-self: center;
+    margin-top: 3em;
+
+    .mail-header {
+        justify-content: space-between;
+
+        .mail-action-btns {
+            gap: 2em;
+
+            button {
+                border: none;
+                padding: 0;
+                height: 1.5em;
+                background-color: white;
+            }
+        }
+    }
+
+    p {
+        margin-bottom: 0;
+    }
+}
