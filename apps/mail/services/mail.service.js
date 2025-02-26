@@ -146,7 +146,7 @@ function _createDemoMails() {
                 isRead: true,
                 isStarred: false,
                 sentAt: 1556133940594,
-                removedAt: 1551138940594,
+                removedAt: 1558138940594,
                 from: 'wolverine@momo.com',
                 to: 'user@appsus.com'
             },

@@ -42,7 +42,7 @@ export function MailIndex() {
             <MailFilter filterBy={{ filterBy }} onSetFilterBy={onSetFilterBy} />
             <MailList mails={mails} />
             <MailFolderList
-                currFolder={filterBy.status}
+                // currFolder={filterBy.status}
                 onSelectMailFolder={onSelectMailFolder}
             />
         </section>)

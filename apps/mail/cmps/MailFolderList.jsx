@@ -17,8 +17,8 @@
 // </section>
 //     )
 // }
-export function MailFolderList(currFolder, onSelectMailFolder) {
-    
+export function MailFolderList({onSelectMailFolder}) {
+
     return (
         <div className="mail-folders-container">
             <ul className="mail-folders flex column">
