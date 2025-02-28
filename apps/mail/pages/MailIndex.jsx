@@ -39,7 +39,8 @@ export function MailIndex() {
 
     function onSelectMailFolder(folder) {
         setFilterBy(prevFilter => ({ ...prevFilter, status: folder }))
-    } function onMailSent() {
+    }
+     function onMailSent() {
         loadMails()
     }
     function isCompose() {
