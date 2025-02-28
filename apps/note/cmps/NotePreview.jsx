@@ -1,8 +1,11 @@
+import { NoteTxt } from './NoteTxt.jsx'
+import { NoteImg } from './NoteImg.jsx'
+
 export function NotePreview({ note }) {
-  const { info } = note
   return (
     <article className="note-prev">
-      <h3>{info.txt}</h3>
+      <NoteTxt note={note} />
+      <NoteImg note={note} />
     </article>
   )
 }

@@ -3,7 +3,7 @@ import { utilService } from "../../../services/util.service.js"
 
 const { useState } = React
 
-export function MailCompose() {
+export function MailCompose({onMailSent}) {
 
     const [mailToCompose, setMailToCompose] = useState(mailService.getEmptyMail())
     console.log('CCCCCCCCCCCCCCC', mailToCompose)
@@ -13,12 +13,13 @@ export function MailCompose() {
         setMailToCompose(prevMail => ({ ...prevMail, [name]: value }))
     }
 
-    function onSaveMail() {
+    function onSaveMail(ev) {
         ev.preventDefault()
         mailService.save(mailToCompose)
             .then(savedMail => {
                 console.log("Mail Saved: ", savedMail)
                 setMailToCompose(mailService.getEmptyMail())
+                onMailSent()
             })
             .catch(err => {
                 console.error("Error in saving mail: ", err)

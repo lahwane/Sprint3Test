@@ -1,21 +1,21 @@
 const { useState, useEffect } = React
 
-import { notesService } from '../services/note.service.js'
 import { NoteList } from '../cmps/NoteList.jsx'
+import { notesService } from '../services/note.service.js'
 
 export function NoteIndex() {
   const [notes, setNotes] = useState([])
-
+  const [filterBy, setFilterBy] = useState(notesService.getDefaultFilter())
   useEffect(() => {
     loadNotes()
-  }, [])
+  }, [filterBy])
 
   function loadNotes() {
-    notesService.query().then(setNotes)
+    notesService.query(filterBy).then(setNotes)
   }
 
   return (
-    <div className=" notes-container">
+    <div className="container">
       <h2>Notes list</h2>
       <NoteList notes={notes} />
     </div>

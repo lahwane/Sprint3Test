@@ -8,7 +8,7 @@ export function MailPreview({ mail }) {
 
     console.log(mail)
     const [isStarred, setIsStarred] = useState(mail.isStarred || false)
-    const dateFormatted = utilService.getFormattedDate(mail.sentAt)
+    const dateFormatted = utilService.getFormattedDate(mail.createdAt)
 
     function onToggleStarred(ev) {
         setIsStarred(!isStarred)

@@ -9,7 +9,9 @@ export const notesService = {
   remove,
   save,
   getEmptyNote,
+  getDefaultFilter,
 }
+
 function query(filterBy = {}) {
   return storageService.query(NOTE_KEY).then((notes) => {
     console.log('notes:', notes)
@@ -38,7 +40,7 @@ function save(note) {
   }
 }
 
-function getEmptyNote(type = '', txt = '') {
+function getEmptyNote(type = '', txt = '', backgroundColor = '', info = '') {
   return {
     createdAt: 1112222,
     type: 'NoteTxt',
@@ -52,29 +54,54 @@ function getEmptyNote(type = '', txt = '') {
   }
 }
 
+function getDefaultFilter() {
+  return { type: '', isPinned: '' }
+}
 function _createNotes() {
   const noteType = ['NoteTxt', 'NoteImg', 'NoteTodos']
-  const notes = utilService.loadFromStorage(NOTE_KEY) || []
-
-  if (notes && notes.length) return
-
-  for (let i = 0; i < 8; i++) {
-    const note = {
-      id: utilService.makeId(),
+  const notes = [
+    {
+      id: 'n101',
       createdAt: 1112222,
       type: 'NoteTxt',
-      isPinned: false,
+      isPinned: true,
       style: {
         backgroundColor: '#00d',
       },
       info: {
         txt: 'Fullstack Me Baby!',
       },
-    }
-    notes.push(note)
-  }
+    },
+    {
+      id: 'n102',
+      createdAt: 1112223,
+      type: 'NoteImg',
+      isPinned: false,
+      info: {
+        url: 'assets/img/15.jpg',
+        title: 'Bobi and Me',
+      },
+      style: {
+        backgroundColor: '#00d',
+      },
+    },
+    {
+      id: 'n103',
+      createdAt: 1112224,
+      type: 'NoteTodos',
+      isPinned: false,
+      info: {
+        title: 'Get my stuff together',
+        todos: [
+          { txt: 'Driving license', doneAt: null },
+          { txt: 'Coding power', doneAt: 187111111 },
+        ],
+      },
+    },
+  ]
   utilService.saveToStorage(NOTE_KEY, notes)
 }
+
 //   type: [noteType[utilService.getRandomIntInclusive(0, noteType.length - 1)]],
 // const notes = [
 //   {
