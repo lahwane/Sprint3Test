@@ -2,6 +2,7 @@ const { useState } = React
 const { Link } = ReactRouterDOM
 
 import { utilService } from "../../../services/util.service.js"
+import { mailService } from "../services/mail.service.js"
 
 export function MailPreview({ mail }) {
 
@@ -29,7 +30,9 @@ export function MailPreview({ mail }) {
             <td className="subject-col flex">
                 <Link to={`/mail/${mail.id}`}>
                     <span className="mail-subject">{mail.subject}...</span>
-                    <span className="mail-body">{mail.body} {utilService.makeLorem(5)}</span>
+                    <span>
+                        {mailService.getShortBody(mail.body)}
+                    </span>
                 </Link>
             </td>
             <td className="date-col">

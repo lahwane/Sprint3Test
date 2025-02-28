@@ -1,22 +1,4 @@
 
-// export function MailFolders(){
-
-//     const folders=[
-//         {folderName:'Inbox', value:'inbox'},
-//         {folderName:'Sent', value:'sent'},
-//         {folderName:'Drafts', value:'drafts'},
-//         {folderName:'Trash', value:'trash'},
-//         {folderName:'All', value:'all'}
-//     ]
-
-//     return(
-// <section className="mail-folders-container">
-//     <ul>
-//         {folders.map(folder=>)}
-//     </ul>
-// </section>
-//     )
-// }
 export function MailFolderList({onSelectMailFolder}) {
 
     return (
@@ -29,7 +11,7 @@ export function MailFolderList({onSelectMailFolder}) {
                 </li>
                 <li>
                     <button className="flex" onClick={() => onSelectMailFolder('sent')}>
-                        <i class="fa-regular fa-paper-plane"></i> <span>Sent</span>
+                        <i className="fa-regular fa-paper-plane"></i> <span>Sent</span>
                     </button>
 
                 </li>

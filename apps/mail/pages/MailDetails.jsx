@@ -59,7 +59,7 @@ export function MailDetails() {
                 <p><span>Sent at: </span>{utilService.getFormattedDate(sentAt)}</p>
             </div>
             <div className="mail-body">
-                <p>{body} {utilService.makeLorem(40)}</p>
+                <p>{body}</p>
             </div>
         </section>
     )

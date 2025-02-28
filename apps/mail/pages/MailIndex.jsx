@@ -6,6 +6,7 @@ import { MailFilter } from "../cmps/MailFilter.jsx"
 import { MailFolderList } from "../cmps/MailFolderList.jsx"
 import { MailList } from "../cmps/MailList.jsx"
 import { mailService } from "../services/mail.service.js"
+import { MailCompose } from "../cmps/MailCompose.jsx"
 
 export function MailIndex() {
 
@@ -17,6 +18,8 @@ export function MailIndex() {
         console.log(filterBy)
 
     }, [filterBy])
+
+    // filterBy.status='inbox'
 
     function loadMails() {
         mailService.query(filterBy)
@@ -38,13 +41,20 @@ export function MailIndex() {
     }
 
     return (
-        <section className="mail-index-container">
-            <MailFilter filterBy={{ filterBy }} onSetFilterBy={onSetFilterBy} />
-            <MailList mails={mails} />
-            <MailFolderList
-                // currFolder={filterBy.status}
-                onSelectMailFolder={onSelectMailFolder}
-            />
+        <section className="mail-index-container flex">
+            <div className="mail-folders">
+
+                <MailFolderList
+                    onSelectMailFolder={onSelectMailFolder}
+                />
+            </div>
+
+            <div className="mail-filter-list">
+
+                <MailFilter filterBy={filterBy} onSetFilterBy={onSetFilterBy} />
+                <MailList mails={mails} />
+                <MailCompose/>
+            </div>
         </section>)
 }
 

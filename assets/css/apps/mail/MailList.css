@@ -3,7 +3,7 @@
 
     .mail-table {
         place-self: center;
-        width: 70vw;
+        width: 85vw;
         border-collapse: collapse;
         background-color: rgb(231, 236, 238);
         th{

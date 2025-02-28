@@ -83,8 +83,8 @@ function getFormattedDate(timeStamp) {
     const monthShort=month.slice(0,3)
     const year = date.getFullYear()
     const currYear = new Date().getFullYear()
-    console.log(year)
-    console.log("currYear", currYear)
+    // console.log(year)
+    // console.log("currYear", currYear)
     if (year !== currYear)
         return year
     else return `${monthShort} ${day}`
