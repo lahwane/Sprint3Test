@@ -5,17 +5,17 @@ import { MailFolderList } from "../cmps/MailFolderList.jsx"
 const { useState, useEffect } = React
 const { useParams, useNavigate, Link } = ReactRouterDOM
 
-export function MailDetails({mailId}) {
+export function MailDetails({ mailId }) {
 
     const params = useParams()
     console.log('hhhhhhhhhhhhh', params);
 
     const [mail, setMail] = useState(null)
     useEffect(() => {
-        if (!params.mailId){
-console.log("balash");
+        if (!params.mailId) {
+            console.log("balash");
 
-        } 
+        }
         // return
         else {
             mailService.getById(mailId)

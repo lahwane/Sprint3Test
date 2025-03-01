@@ -23,18 +23,14 @@ export function MailPreview({ mail, onSelectMail }) {
                 </span>
             </td>
             <td className="from-col">
-                {/* <Link to={`/mail/${mail.id}`}> */}
-                    {mail.from}
-                {/* </Link> */}
+                {mail.from}
             </td>
-            {/* <Link to={`/mail/${mail.id}`}> */}
-                <td className="subject-col flex">
-                    <span className="mail-subject">{mail.subject}...</span>
-                    <span>
-                        {mailService.getShortBody(mail.body)}
-                    </span>
-                </td>
-            {/* </Link> */}
+            <td className="subject-col flex">
+                <span className="mail-subject">{mail.subject}...</span>
+                <span>
+                    {mailService.getShortBody(mail.body)}
+                </span>
+            </td>
             <td className="date-col">
                 {dateFormatted}
             </td>

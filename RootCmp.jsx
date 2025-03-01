@@ -9,7 +9,7 @@ import { MailIndex } from './apps/mail/pages/MailIndex.jsx'
 import { NoteIndex } from './apps/note/pages/NoteIndex.jsx'
 import { MailDetails } from './apps/mail/pages/MailDetails.jsx'
 
-export function RootCmp() {
+export function RootCmp({onSelectMail}) {
     return <Router>
         <section className="root-cmp">
             <AppHeader />

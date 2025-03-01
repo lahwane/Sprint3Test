@@ -9,7 +9,7 @@ import { mailService } from "../services/mail.service.js"
 import { MailCompose } from "../cmps/MailCompose.jsx"
 import { MailDetails } from "./MailDetails.jsx"
 
-export function MailIndex() {
+export function MailIndex({onSelectMail}) {
 
     const [mails, setMails] = useState(null)
     const [filterBy, setFilterBy] = useState(mailService.getDefaultFilter())
