@@ -1,0 +1,68 @@
+.mail-compose-modal {
+    
+    position: fixed;
+    bottom: 2em;
+    right: 1em;
+    width: 300px;
+    background-color: #fff;
+    padding: 1em;
+    border:1px solid rgb(226, 226, 226);
+    border-radius: 5px;
+    font-family: "Google Sans", Roboto, RobotoDraft, Helvetica, Arial, sans-serif;
+
+    form {
+        display: grid;
+        grid-template-columns: 3em 1fr;
+        gap: 1em;
+        grid-template-rows: auto auto auto auto;
+        grid-template-areas:
+            "to-label to-input"
+            "subject-label subject-input"
+            "body-input body-input"
+            "mail-compose-actions mail-compose-actions";
+        margin-top: 1em;
+
+        .to-label {
+            grid-area: to-label;
+        }
+
+        .to-input {
+            grid-area: to-input;
+            border: 1px solid lightgray;
+        }
+
+        .subject-label {
+            grid-area: subject-label;
+        }
+
+        .subject-input {
+            grid-area: subject-input;
+            border: 1px solid lightgray;
+        }
+
+        .body-input {
+            grid-area: body-input;
+            height: 170px;
+            border: 1px solid lightgray;
+        }
+
+        .mail-compose-actions {
+            grid-area: mail-compose-actions;
+
+            .send-btn {
+                padding: .8em;
+                background-color: #a8c7fa;
+                border: none;
+                border-radius: 1em;
+
+            }
+
+            .compose-cancel {
+                border: none;
+                background-color: #fff;
+                font-size: 1.1em;
+            }
+        }
+    }
+
+}

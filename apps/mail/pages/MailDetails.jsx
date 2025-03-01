@@ -1,19 +1,24 @@
 import { utilService } from "../../../services/util.service.js"
 import { mailService } from "../services/mail.service.js"
+import { MailFolderList } from "../cmps/MailFolderList.jsx"
 
 const { useState, useEffect } = React
 const { useParams, useNavigate, Link } = ReactRouterDOM
 
-export function MailDetails() {
+export function MailDetails({mailId}) {
 
     const params = useParams()
     console.log('hhhhhhhhhhhhh', params);
 
     const [mail, setMail] = useState(null)
     useEffect(() => {
-        if (!params.mailId) return
+        if (!params.mailId){
+console.log("balash");
+
+        } 
+        // return
         else {
-            mailService.getById(params.mailId)
+            mailService.getById(mailId)
 
                 .then(mail => {
                     setMail(mail)
@@ -22,7 +27,7 @@ export function MailDetails() {
                     console.error('Error in loading mail:', err)
                 })
         }
-    }, [params.mailId])
+    }, [mailId])
 
     const navigate = useNavigate()
 
@@ -40,26 +45,32 @@ export function MailDetails() {
     const { from, to, subject, body, sentAt } = mail
 
     return (
-        <section className="mail-details">
-            <header className="mail-header flex">
-                <h3 className="mail-subject">{subject}</h3>
-                <section className="mail-action-btns flex">
+        <section className="mail-details-container flex">
+            {/* <div className="mail-folders">
+                <MailFolderList />
+            </div> */}
 
-                    <button onClick={() => navigate('/mail')}>
-                        <img src="../../../assets/img/back.png" alt="Back to mails" />
-                    </button>
-                    <button onClick={() => OnRemoveMail()}>
-                        <img src="../../../assets/img/delete-icon.png" alt="Delete mail" />
-                    </button>
-                </section>
-            </header>
-            <p><span>From: </span>{from}</p>
-            <div className="mail-sent-info flex space-between">
-                <p><span>to: </span>{to}</p>
-                <p><span>Sent at: </span>{utilService.getFormattedDate(sentAt)}</p>
-            </div>
-            <div className="mail-body">
-                <p>{body}</p>
+            <div>
+                <header className="mail-header flex">
+                    <h3 className="mail-subject">{subject}</h3>
+                    <section className="mail-action-btns flex">
+
+                        <button onClick={() => navigate('/mail')}>
+                            <img src="../../../assets/img/back.png" alt="Back to mails" />
+                        </button>
+                        <button onClick={() => OnRemoveMail()}>
+                            <img src="../../../assets/img/delete-icon.png" alt="Delete mail" />
+                        </button>
+                    </section>
+                </header>
+                <p><span>From: </span>{from}</p>
+                <div className="mail-sent-info flex space-between">
+                    <p><span>to: </span>{to}</p>
+                    <p><span>Sent at: </span>{utilService.getFormattedDate(sentAt)}</p>
+                </div>
+                <div className="mail-body">
+                    <p>{body}</p>
+                </div>
             </div>
         </section>
     )

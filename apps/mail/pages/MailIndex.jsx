@@ -7,12 +7,14 @@ import { MailFolderList } from "../cmps/MailFolderList.jsx"
 import { MailList } from "../cmps/MailList.jsx"
 import { mailService } from "../services/mail.service.js"
 import { MailCompose } from "../cmps/MailCompose.jsx"
+import { MailDetails } from "./MailDetails.jsx"
 
 export function MailIndex() {
 
     const [mails, setMails] = useState(null)
     const [filterBy, setFilterBy] = useState(mailService.getDefaultFilter())
     const [isCompose, setIsCompose] = useState(false)
+    const [selectedMailId, setSelectedMailId] = useState(null)
 
     useEffect(() => {
         loadMails()
@@ -40,17 +42,26 @@ export function MailIndex() {
     function onSelectMailFolder(folder) {
         setFilterBy(prevFilter => ({ ...prevFilter, status: folder }))
     }
-     function onMailSent() {
+    function onMailSent() {
         loadMails()
     }
-    function isCompose() {
+
+    function toggleCompose() {
         setIsCompose(prevModal => !prevModal)
+    }
+
+    function onSelectMail(mailId) {
+        setSelectedMailId(mailId)
     }
 
     return (
         <section className="mail-index-container flex">
             <div className="mail-folders">
-                <button onClick={isCompose}>Compose</button>
+                <button
+                    className="compose-btn"
+                    onClick={toggleCompose}>
+                    <i class="fa-solid fa-pencil"></i> Compose
+                </button>
                 <MailFolderList
                     onSelectMailFolder={onSelectMailFolder}
                 />
@@ -59,12 +70,23 @@ export function MailIndex() {
             <div className="mail-filter-list">
 
                 <MailFilter filterBy={filterBy} onSetFilterBy={onSetFilterBy} />
-                <MailList mails={mails} />
+                {selectedMailId ? (
+                    <MailDetails
+                        mailId={selectedMailId}
+                        onBack={() => setSelectedMailId(null)}
+
+                    />
+                ) : (
+                    <MailList
+                        mails={mails}
+                        onSelectMail={onSelectMail}
+                    />
+                )}
+                {/* <MailList mails={mails} /> */}
                 {
                     isCompose && (
-
                         <MailCompose
-                            onClose={isCompose}
+                            onClose={toggleCompose}
                             onMailSent={onMailSent} />
                     )
                 }

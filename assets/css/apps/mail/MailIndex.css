@@ -1,9 +1,15 @@
+.mail-index-container {
 
+    .mail-folders {
+        margin-top: 5em;
 
-.mail-index-container{
+        .compose-btn {
+            /* position: relative; */
+            background-color: #a8c7fa;
+            border: none;
+            height: 3em;
+            border-radius: .8em;
+        }
 
-    .mail-folders{
-    margin-top: 5em;
     }
 }
-

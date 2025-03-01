@@ -1,0 +1,53 @@
+.mail-list-container {
+    padding: 2em;
+
+    .mail-table {
+        place-self: center;
+        width: 85vw;
+        border-collapse: collapse;
+        background-color: rgb(248, 247, 247);
+        th{
+            padding:.5em;
+        }
+
+        tr {
+            border-bottom: 1px solid rgb(223, 219, 219);
+
+            td {
+                padding: .5em;
+            }
+        }
+    }
+}
+
+.mail-preview {
+    cursor: pointer;
+
+    .subject-col {
+        .mail-subject {
+            font-weight: 550;
+        }
+
+        .mail-body {
+            opacity: 0.5;
+        }
+
+    }
+
+    .date-col {
+        text-align: center;
+    }
+}
+
+.stars-col {
+
+    .star-icon {
+        font-size: 1.4em;
+    }
+
+    .star-icon.starred {
+        color: gold;
+    }
+}
+
+/* .from-col {} */
