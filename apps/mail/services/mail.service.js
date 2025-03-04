@@ -64,8 +64,6 @@ function getShortBody(Text, length = 12) {
     return shortBody
 }
 
-
-
 function filter(mails, filterBy) {
     if (filterBy.txt) {
         const regExp = new RegExp(filterBy.txt, 'i')
@@ -79,14 +77,20 @@ function filter(mails, filterBy) {
         case 'inbox':
             mails = mails.filter(mail => mail.to === loggedinUser.email && !mail.removedAt && mail.sentAt)
             break
+        case 'starred':
+            mails = mails.filter(mail => mail.isStarred && !mail.removedAt)
+            break
         case 'sent':
             mails = mails.filter(mail => mail.from === loggedinUser.email && mail.sentAt)
             break
         case 'drafts':
-            mails = mails.filter(mail => !mail.sentAt)
+            mails = mails.filter(mail => !mail.sentAt && !mail.removedAt)
             break
         case 'trash':
             mails = mails.filter(mail => mail.removedAt)
+            break
+        case 'all':
+            mails = mails.filter(mail => !mail.removedAt)
             break
     }
     console.log('after filter', filterBy, mails)

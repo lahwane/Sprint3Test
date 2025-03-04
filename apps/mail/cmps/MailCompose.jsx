@@ -20,6 +20,7 @@ export function MailCompose({ onClose, onMailSent }) {
                 console.log("Mail Saved: ", savedMail)
                 setMailToCompose(mailService.getEmptyMail())
                 onMailSent()
+                onClose()
             })
             .catch(err => {
                 console.error("Error in saving mail: ", err)

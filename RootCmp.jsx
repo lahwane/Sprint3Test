@@ -9,7 +9,7 @@ import { MailIndex } from './apps/mail/pages/MailIndex.jsx'
 import { NoteIndex } from './apps/note/pages/NoteIndex.jsx'
 import { MailDetails } from './apps/mail/pages/MailDetails.jsx'
 
-export function RootCmp({onSelectMail}) {
+export function RootCmp() {
     return <Router>
         <section className="root-cmp">
             <AppHeader />
@@ -17,7 +17,7 @@ export function RootCmp({onSelectMail}) {
                 <Route path="/" element={<Home />} />
                 <Route path="/about" element={<About />} />
                 <Route path="/mail" element={<MailIndex />} />
-                {/* <Route path="/mail/:mailId" element={<MailDetails />} /> */}
+                <Route path="/mail/:mailId" element={<MailDetails />} />
 
                 <Route path="/note" element={<NoteIndex />} />
             </Routes>

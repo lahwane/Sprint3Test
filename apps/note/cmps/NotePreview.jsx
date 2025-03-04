@@ -1,11 +1,20 @@
 import { NoteTxt } from './NoteTxt.jsx'
 import { NoteImg } from './NoteImg.jsx'
+import { NoteTodos } from './NoteTodos.jsx'
 
 export function NotePreview({ note }) {
-  return (
-    <article className="note-prev">
-      <NoteTxt note={note} />
-      <NoteImg note={note} />
-    </article>
-  )
+  const getNoteToRender = () => {
+    switch (note.type) {
+      case 'NoteTxt':
+        return <NoteTxt note={note} />
+      case 'NoteImg':
+        return <NoteImg note={note} />
+      case 'NoteTodos':
+        return <NoteTodos note={note} />
+      default:
+        return <div></div>
+    }
+  }
+
+  return <section className="note-prev">{getNoteToRender()}</section>
 }

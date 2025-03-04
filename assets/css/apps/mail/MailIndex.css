@@ -1,15 +1,27 @@
 .mail-index-container {
+    gap: 2em;
+
+    .mail-filter-list {
+        margin-left: .2em;
+    }
+
+    .hamburger-btn {
+        position: fixed;
+        margin: 1em 1em;
+        display: none;
+    }
+
+    .compose-btn {
+        width: 10em;
+        margin: 3em 3em;
+        background-color: #a8c7fa;
+        border: none;
+        height: 3em;
+        border-radius: .8em;
+        margin-left: 1em;
+    }
 
     .mail-folders {
         margin-top: 5em;
-
-        .compose-btn {
-            /* position: relative; */
-            background-color: #a8c7fa;
-            border: none;
-            height: 3em;
-            border-radius: .8em;
-        }
-
     }
 }

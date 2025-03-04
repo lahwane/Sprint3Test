@@ -6,14 +6,14 @@ export function MailList({ mails, onSelectMail }) {
     return (
         <section className="mail-list-container">
             <table className="mail-table">
-                <thead>
+                {/* <thead>
                     <tr>
                         <th></th>
                         <th>From</th>
                         <th>Subject</th>
                         <th>Date</th>
                     </tr>
-                </thead>
+                </thead> */}
                 <tbody>
                     {mails.map(mail => (
                         <MailPreview mail={mail} key={mail.id} onSelectMail={onSelectMail} />

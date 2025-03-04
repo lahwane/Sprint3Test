@@ -40,7 +40,7 @@ function save(note) {
   }
 }
 
-function getEmptyNote(type = '', txt = '', backgroundColor = '', info = '') {
+function getEmptyNote(type = '', backgroundColor = '', info = '') {
   return {
     createdAt: 1112222,
     type: 'NoteTxt',
@@ -48,21 +48,20 @@ function getEmptyNote(type = '', txt = '', backgroundColor = '', info = '') {
     style: {
       backgroundColor: '#00d',
     },
-    info: {
-      txt: 'Fullstack Me Baby!',
-    },
+    info: {},
   }
 }
 
 function getDefaultFilter() {
   return { type: '', isPinned: '' }
 }
+
 function _createNotes() {
   const noteType = ['NoteTxt', 'NoteImg', 'NoteTodos']
   const notes = [
     {
       id: 'n101',
-      createdAt: 1112222,
+      createdAt: 111276222,
       type: 'NoteTxt',
       isPinned: true,
       style: {
@@ -74,7 +73,7 @@ function _createNotes() {
     },
     {
       id: 'n102',
-      createdAt: 1112223,
+      createdAt: 1112226763,
       type: 'NoteImg',
       isPinned: false,
       info: {
@@ -87,7 +86,83 @@ function _createNotes() {
     },
     {
       id: 'n103',
-      createdAt: 1112224,
+      createdAt: 1112227865,
+      type: 'NoteTodos',
+      isPinned: false,
+      info: {
+        title: 'Get my stuff together',
+        todos: [
+          { txt: 'Driving license', doneAt: null },
+          { txt: 'Coding power', doneAt: 187111111 },
+        ],
+      },
+    },
+    {
+      id: 'n104',
+      createdAt: 1112222,
+      type: 'NoteTxt',
+      isPinned: true,
+      style: {
+        backgroundColor: '#00d',
+      },
+      info: {
+        txt: 'Fullstack Me Baby!',
+      },
+    },
+    {
+      id: 'n105',
+      createdAt: 11122333523,
+      type: 'NoteImg',
+      isPinned: false,
+      info: {
+        url: 'assets/img/15.jpg',
+        title: 'Bobi and Me',
+      },
+      style: {
+        backgroundColor: '#00d',
+      },
+    },
+    {
+      id: 'n106',
+      createdAt: 111222774,
+      type: 'NoteTodos',
+      isPinned: false,
+      info: {
+        title: 'Get my stuff together',
+        todos: [
+          { txt: 'Driving license', doneAt: null },
+          { txt: 'Coding power', doneAt: 187111111 },
+        ],
+      },
+    },
+    {
+      id: 'n107',
+      createdAt: 11124356222,
+      type: 'NoteTxt',
+      isPinned: true,
+      style: {
+        backgroundColor: '#00d',
+      },
+      info: {
+        txt: 'Fullstack Me Baby!',
+      },
+    },
+    {
+      id: 'n108',
+      createdAt: 1112343223,
+      type: 'NoteImg',
+      isPinned: false,
+      info: {
+        url: 'assets/img/15.jpg',
+        title: 'Bobi and Me',
+      },
+      style: {
+        backgroundColor: '#00d',
+      },
+    },
+    {
+      id: 'n109',
+      createdAt: 111224524,
       type: 'NoteTodos',
       isPinned: false,
       info: {

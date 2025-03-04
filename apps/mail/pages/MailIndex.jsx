@@ -9,12 +9,14 @@ import { mailService } from "../services/mail.service.js"
 import { MailCompose } from "../cmps/MailCompose.jsx"
 import { MailDetails } from "./MailDetails.jsx"
 
-export function MailIndex({onSelectMail}) {
+export function MailIndex() {
 
     const [mails, setMails] = useState(null)
     const [filterBy, setFilterBy] = useState(mailService.getDefaultFilter())
     const [isCompose, setIsCompose] = useState(false)
     const [selectedMailId, setSelectedMailId] = useState(null)
+
+    const [isFoldersOpen, setIsFoldersOpen] = useState(false)
 
     useEffect(() => {
         loadMails()
@@ -41,8 +43,13 @@ export function MailIndex({onSelectMail}) {
 
     function onSelectMailFolder(folder) {
         setFilterBy(prevFilter => ({ ...prevFilter, status: folder }))
+        setSelectedMailId(null)
     }
     function onMailSent() {
+        loadMails()
+    }
+
+    function onMailDeleted() {
         loadMails()
     }
 
@@ -54,17 +61,30 @@ export function MailIndex({onSelectMail}) {
         setSelectedMailId(mailId)
     }
 
+    function toggleMenu() {
+        setIsFoldersOpen(menuOpen => !menuOpen)
+    }
+
     return (
         <section className="mail-index-container flex">
-            <div className="mail-folders">
+
+            <button
+                className="hamburger-btn"
+                onClick={toggleMenu}>
+                <i className="fa-solid fa-bars"></i>
+            </button>
+            <div className="mail-folders-container">
                 <button
                     className="compose-btn"
                     onClick={toggleCompose}>
                     <i class="fa-solid fa-pencil"></i> Compose
                 </button>
-                <MailFolderList
-                    onSelectMailFolder={onSelectMailFolder}
-                />
+                <div className={`mail-folders ${isFoldersOpen ? 'open' : ''}`}>
+
+                    <MailFolderList
+                        onSelectMailFolder={onSelectMailFolder}
+                    />
+                </div>
             </div>
 
             <div className="mail-filter-list">
@@ -74,15 +94,14 @@ export function MailIndex({onSelectMail}) {
                     <MailDetails
                         mailId={selectedMailId}
                         onBack={() => setSelectedMailId(null)}
-
+                        onMailDeleted={onMailDeleted}
                     />
                 ) : (
+
                     <MailList
                         mails={mails}
-                        onSelectMail={onSelectMail}
-                    />
+                        onSelectMail={onSelectMail} />
                 )}
-                {/* <MailList mails={mails} /> */}
                 {
                     isCompose && (
                         <MailCompose

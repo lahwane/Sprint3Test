@@ -1,0 +1,8 @@
+.note-form {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+.items-container {
+  background-color: antiquewhite;
+}
