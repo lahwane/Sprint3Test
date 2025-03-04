@@ -2,6 +2,10 @@
     .mail-list-container {
         padding: 0;
     }
+
+    .mail-filter-list {
+        width: 65vw
+    }
 }
 
 @media (max-width: 700px) {
@@ -15,7 +19,7 @@
 
         .mail-table {
             tr {
-                margin-bottom: .5em;
+                /* margin-bottom: .5em; */
 
                 td {
                     padding: .3em;
@@ -24,6 +28,7 @@
         }
 
         .mail-preview {
+            padding: .5em;
             display: grid;
             grid-template-columns: 1fr auto;
             grid-template-rows: auto auto;
@@ -34,12 +39,13 @@
             .stars-col {
                 text-align: center;
             }
+
         }
     }
 
     .from-col {
         grid-area: from;
-        font-weight: 600;
+        /* font-weight: 600; */
     }
 
     .date-col {
@@ -53,13 +59,23 @@
     .stars-col {
         grid-area: star;
     }
-
 }
 
 @media (max-width: 600px) {
+    .hamburger-btn {
+        display: inline-block;
+        z-index: 99;
+        border: none;
+        background-color: #fff;
+        font-size: 1.5em;
+    }
+
     .mail-index-container {
+        place-self: center;
+
         .mail-filter-list {
             margin-left: 0;
+            width: 95vw;
         }
 
         .compose-btn {
@@ -70,30 +86,90 @@
             border-radius: 2em;
         }
 
-        .mail-table {
-            margin-left: .7em;
-        }
+        .mobile-folders-container {
 
-        .hamburger-btn {
-            display: inline-block;
-        }
-
-        .mail-folders-container {
-
-            .mail-folders {
-                position: fixed;
-                width: 300px;
+            .mobile-folders {
+                position: absolute;
+                width: 200px;
                 height: 100%;
                 background-color: #fff;
                 transform: translateX(-100%);
-                z-index: 999;
+                transition: transform 0.4s ease;
+                z-index: 98;
             }
 
-            .mail-folders.open {
+            .mobile-folders.open {
                 transform: translateX(0);
             }
+
+            .mobile-overlay {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.3);
+                z-index: 97;
+            }
+
         }
     }
 
+    .mail-list-container {
 
+        /* margin-left: 1em; */
+        .mail-table {
+            width: 90vw;
+        }
+
+        .mail-preview {
+            .subject-col {
+
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+
+            .stars-col {
+
+                .star-icon {
+                    font-size: 1.6em;
+                }
+            }
+        }
+
+
+    }
+
+    .mail-filter-container {
+        place-self: center;
+        padding: 0;
+
+        input {
+            height: 2.5em;
+            margin-bottom: .7em;
+            width: 15em;
+        }
+    }
+
+    .mail-details {
+        max-width: 80vw;
+        margin: 2.5em 2.5em;
+
+        .mail-header {
+            gap: 5em;
+        }
+
+
+    }
+
+    .mail-compose-modal {
+        position: fixed;
+        top: 0;
+        left: 0;
+        /* margin-bottom: 0; */
+        height: 100vh;
+        width: 90vw;
+
+    }
 }

@@ -1,5 +1,5 @@
 .mail-index-container {
-    gap: 2em;
+    /* gap: 2em; */
 
     .mail-filter-list {
         margin-left: .2em;
@@ -7,7 +7,7 @@
 
     .hamburger-btn {
         position: fixed;
-        margin: 1em 1em;
+        margin: 1em .3em;
         display: none;
     }
 
@@ -24,4 +24,10 @@
     .mail-folders {
         margin-top: 5em;
     }
+}
+
+.hamburger-btn {
+    /* position: fixed; */
+    margin: .2em .2em;
+    display: none;
 }

@@ -17,5 +17,5 @@
 @import './apps/mail/mail-filter.css';
 @import './apps/mail/mail-details.css';
 @import './apps/mail/mail-folders.css';
-@import './apps/mail/compose-mail.css';
+@import './apps/mail/mail-compose.css';
 @import './basics/mq.css'
