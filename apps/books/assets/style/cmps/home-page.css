@@ -1,0 +1,13 @@
+.home-greeting {
+    place-self: center;
+    margin: 5em;
+    color: var(--clr1bg-light);
+    /* padding-bottom: 10em; */
+    min-height: 100vh;
+    text-align: center;
+}
+
+.btn-explore-books {
+    padding: 1em;
+    font-size: larger;
+}

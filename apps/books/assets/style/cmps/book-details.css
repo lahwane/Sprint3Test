@@ -1,0 +1,50 @@
+.book-details-container {
+    margin-top: 3em;
+    max-width: 60vw;
+    background-color: rgb(134, 151, 156);
+
+    img {
+        max-width: 500px;
+    }
+
+    .book-title {
+        text-align: center;
+        margin: 0;
+        background-color: #334d32;
+        color: rgb(121, 160, 126);
+    }
+
+    .book-subtitle {
+        text-align: center;
+        background-color: #557054;
+        margin-top: 0;
+        padding: .5em 1em;
+        color: rgb(179, 207, 193);
+    }
+
+    .book-details {
+        margin-left: 1em;
+        margin-top: 1em;
+        gap: .5em;
+
+        img {
+            max-width: 300px;
+        }
+
+        .book-details-info {
+            margin-top: 1em;
+
+            .book-details-nav {
+                place-self: center;
+                margin-bottom: 2em;
+                gap: 3em;
+
+            }
+        }
+
+        span {
+            font-weight: 600;
+            color: #1d5c1b;
+        }
+    }
+}

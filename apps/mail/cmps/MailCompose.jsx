@@ -42,18 +42,20 @@ export function MailCompose({ onClose, onMailSent }) {
         <section className="mail-compose-modal">
             <h4>New Message</h4>
             <form onSubmit={onSaveMail} >
-                <label className="to-label" htmlFor="to">To </label>
+
+                <label className="to-label border-bottom" htmlFor="to">To </label>
                 <input
-                    className="to-input"
+                    className="to-input border-bottom"
                     name="to"
                     type="text"
                     id="to"
                     value={mailToCompose.to}
                     onChange={handleChange}
                 />
-                <label className="subject-label" htmlFor="subject">Subject </label>
+
+                <label className="subject-label border-bottom" htmlFor="subject">Subject </label>
                 <input
-                    className="subject-input"
+                    className="subject-input border-bottom"
                     name="subject"
                     type="text"
                     id="subject"

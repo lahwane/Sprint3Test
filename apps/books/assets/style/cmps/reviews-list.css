@@ -1,0 +1,35 @@
+.book-reviews-container {
+
+    margin: auto 2em;
+    ;
+
+    .book-review {
+        position: relative;
+        border: 2px solid #557054;
+        border-radius: 5px;
+        margin-bottom: .5em;
+
+        p {
+            margin-block-end: .5em;
+            margin-left: 1em;
+
+            span {
+                color: #1d5c1b;
+            }
+        }
+
+        button {
+            position: absolute;
+            top: -1.2em;
+            right: -1em;
+            padding: .3em;
+            background-color: #93c091;
+
+        }
+
+    }
+}
+
+.book-reviews {
+    margin-left: .5em;
+}

@@ -59,10 +59,10 @@ export function MailDetails({ mailId, onBack, onMailDeleted }) {
                 <section className="mail-action-btns flex">
 
                     <button onClick={onBack}>
-                        <i class="fa-solid fa-arrow-left"></i>
+                        <i className="fa-solid fa-arrow-left"></i>
                     </button>
                     <button onClick={() => OnRemoveMail()}>
-                        <i class="fa-regular fa-trash-can"></i>
+                        <i className="fa-regular fa-trash-can"></i>
                     </button>
                 </section>
             </header>

@@ -35,8 +35,8 @@ export function MailPreview({ mail, onSelectMail }) {
                 {mail.from}
             </td>
             <td className="subject-col">
-                <span className="mail-subject">{mail.subject}...</span>
-                <span>
+                <span className="mail-subject">{mail.subject}... </span>
+                <span className="mail-short-body">
                     {mailService.getShortBody(mail.body)}
                 </span>
             </td>

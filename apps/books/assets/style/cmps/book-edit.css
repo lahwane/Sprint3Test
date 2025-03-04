@@ -1,0 +1,19 @@
+.book-edit-container {
+
+    width: 500px;
+    place-self: center;
+    padding: 2em;
+    background-color: rgba(180, 188, 204, 0.514);
+    margin-block-start: 2em;
+
+    form {
+        grid-template-columns: 1fr 1fr;
+        gap: 1em
+    }
+
+    button {
+
+        place-self: center;
+        width: 10em;
+    }
+}

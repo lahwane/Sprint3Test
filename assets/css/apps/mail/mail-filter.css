@@ -1,9 +1,10 @@
 .mail-filter-container {
+    /* place-self: center; */
     margin-left: 2em;
     padding: 2em 0;
 
     input {
-        height: 4em;
+        height: 3em;
         border-radius: 1em;
         border: 1px solid var(--gray1);
     }

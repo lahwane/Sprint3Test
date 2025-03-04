@@ -19,7 +19,7 @@ export function MailFilter({ filterBy, onSetFilterBy }) {
                 <input
                     id="searchTxt"
                     type="text"
-                    placeholder="Search"
+                    placeholder="Search in mail"
                     name="txt"
                     value={filterByToEdit.txt}
                     onChange={onHandleChange}

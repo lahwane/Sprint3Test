@@ -6,8 +6,9 @@
         width: 75vw;
         border-collapse: collapse;
         background-color: rgb(248, 247, 247);
-        th{
-            padding:.5em;
+
+        th {
+            padding: .5em;
         }
 
         tr {
@@ -22,32 +23,35 @@
 
 .mail-preview {
     cursor: pointer;
+    font-family: "Google Sans",Roboto,RobotoDraft,Helvetica,Arial,sans-serif;
+    .from-col{
+        font-weight:bold;
+    }
 
     .subject-col {
         .mail-subject {
-            font-weight: 550;
+            font-weight: 520;
         }
 
-        .mail-body {
+        .mail-short-body {
             opacity: 0.5;
         }
-
     }
 
     .date-col {
         text-align: center;
     }
+    .stars-col {
+    
+        .star-icon {
+            font-size: 1.4em;
+        }
+    
+        .star-icon.starred {
+            color: gold;
+        }
+    }
 }
 
-.stars-col {
-
-    .star-icon {
-        font-size: 1.4em;
-    }
-
-    .star-icon.starred {
-        color: gold;
-    }
-}
 
 /* .from-col {} */

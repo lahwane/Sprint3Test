@@ -1,0 +1,9 @@
+.book-list {
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1em;
+}
+
+.add-book {
+  place-self: center;
+}

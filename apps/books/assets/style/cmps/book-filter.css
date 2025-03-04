@@ -1,0 +1,18 @@
+.book-filter{
+    text-align:center;
+    place-self: center;
+    margin-bottom: 1.5em;
+    width: 70%;
+    background-color: var(--clr1bg-light);
+    border-radius: .5em;
+    h2{
+        padding: .5em;
+    }
+    form{
+                display: grid;
+        grid-auto-flow: column;
+        place-self: center;
+        padding: .5em;
+        gap: 3em;
+    }
+}

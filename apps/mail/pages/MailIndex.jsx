@@ -24,7 +24,13 @@ export function MailIndex() {
 
     }, [filterBy])
 
-    // filterBy.status='inbox'
+    useEffect(() => {
+        if (isFoldersOpen && window.innerWidth <= 600) {
+            document.body.style.overflow = 'hidden'
+        } else {
+            document.body.style.overflow = ''
+        }
+    }, [isFoldersOpen])
 
     function loadMails() {
         mailService.query(filterBy)
@@ -44,6 +50,7 @@ export function MailIndex() {
     function onSelectMailFolder(folder) {
         setFilterBy(prevFilter => ({ ...prevFilter, status: folder }))
         setSelectedMailId(null)
+        toggleMenu()
     }
     function onMailSent() {
         loadMails()
@@ -66,50 +73,56 @@ export function MailIndex() {
     }
 
     return (
-        <section className="mail-index-container flex">
-
+        <section >
             <button
                 className="hamburger-btn"
                 onClick={toggleMenu}>
                 <i className="fa-solid fa-bars"></i>
             </button>
-            <div className="mail-folders-container">
-                <button
-                    className="compose-btn"
-                    onClick={toggleCompose}>
-                    <i class="fa-solid fa-pencil"></i> Compose
-                </button>
-                <div className={`mail-folders ${isFoldersOpen ? 'open' : ''}`}>
 
-                    <MailFolderList
-                        onSelectMailFolder={onSelectMailFolder}
-                    />
+            <section className="mail-index-container flex">
+
+                <div className="mobile-folders-container">
+                    <button
+                        className="compose-btn"
+                        onClick={toggleCompose}>
+                        <i class="fa-solid fa-pencil"></i> Compose
+                    </button>
+                    <div className={`mobile-folders ${isFoldersOpen ? 'open' : ''}`}>
+
+                        <MailFolderList
+                            onSelectMailFolder={onSelectMailFolder}
+                        />
+                    </div>
+                    {isFoldersOpen && (
+                        <div className="mobile-overlay" onClick={toggleMenu}></div>
+                    )}
                 </div>
-            </div>
 
-            <div className="mail-filter-list">
+                <div className="mail-filter-list">
 
-                <MailFilter filterBy={filterBy} onSetFilterBy={onSetFilterBy} />
-                {selectedMailId ? (
-                    <MailDetails
-                        mailId={selectedMailId}
-                        onBack={() => setSelectedMailId(null)}
-                        onMailDeleted={onMailDeleted}
-                    />
-                ) : (
+                    <MailFilter filterBy={filterBy} onSetFilterBy={onSetFilterBy} />
+                    {selectedMailId ? (
+                        <MailDetails
+                            mailId={selectedMailId}
+                            onBack={() => setSelectedMailId(null)}
+                            onMailDeleted={onMailDeleted}
+                        />
+                    ) : (
 
-                    <MailList
-                        mails={mails}
-                        onSelectMail={onSelectMail} />
-                )}
-                {
-                    isCompose && (
-                        <MailCompose
-                            onClose={toggleCompose}
-                            onMailSent={onMailSent} />
-                    )
-                }
-            </div>
+                        <MailList
+                            mails={mails}
+                            onSelectMail={onSelectMail} />
+                    )}
+                    {
+                        isCompose && (
+                            <MailCompose
+                                onClose={toggleCompose}
+                                onMailSent={onMailSent} />
+                        )
+                    }
+                </div>
+            </section>
         </section>)
 }
 
